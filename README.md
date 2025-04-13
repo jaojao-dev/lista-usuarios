@@ -22,5 +22,5 @@ Este é um projeto simples em React que consome dados de uma API pública (JSONP
 git clone https://github.com/seu-usuario/lista-usuarios.git
 cd lista-usuarios
 npm install
-npm start
->>>>>>> a7894d76ba087f26447f802bd5eaddcdfdb41247
+npm run dev
+
