@@ -19,7 +19,7 @@ Este é um projeto simples em React que consome dados de uma API pública (JSONP
 
 ## Como Rodar o Projeto
 ```bash
-git clone https://github.com/seu-usuario/lista-usuarios.git
+git clone https://github.com/jaojao-dev/lista-usuarios.git
 cd lista-usuarios
 npm install
 npm run dev
