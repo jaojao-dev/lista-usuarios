@@ -1,36 +1,134 @@
-.user-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-bottom: 1rem;
-  }
-  
-  .user-table th,
-  .user-table td {
-    padding: 0.5rem;
-    border: 1px solid #ddd;
-    text-align: left;
-  }
-  
-  .user-table th {
-    background-color: #f3f3f3;
-  }
-  .user-table th:first-child,
-.user-table td:first-child {
-  position: sticky;
-  left: 0;
-  background-color: #fff; /* fundo para sobrepor corretamente */
-  z-index: 2; /* garantir que fique acima das outras células */
-  border-right: 1px solid #ddd;
+
+.user-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+  max-width: 900px;
+  margin: 1rem auto;
+  padding: 0;
+  list-style: none;
 }
-  
-  /* Responsividade */
+
+.user-header {
+  border-radius: 8px;
+  display: grid;
+  grid-template-columns: 2fr 2fr 2fr; 
+  font-weight: bold;
+  padding: 10px 15px;
+  border-bottom: 2px solid #ccc;
+  background-color: #f7f7f7;
+}
+
+.user-item {
+  border:  1px solid #cccccc3a;
+  display: flex; 
+  flex-direction: column; 
+  justify-content: space-between; 
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
+  transition: background 0.2s ease;
+  height: 70px; 
+}
+
+.user-item:hover {
+  background-color: #cccccc;
+}
+
+
+.user-info { 
+  display: grid;
+  grid-template-columns: 2fr 2fr 2fr;
+  gap: 1rem;
+  width: 100%; 
+}
+
+.name {
+  grid-column: 1 / 2; 
+}
+
+.email {
+  grid-column: 2 / 3; 
+}
+
+.city {
+  grid-column: 3 / 4; 
+}
+
+.user-actions {
+  margin-top: auto; 
+  display: flex;
+  gap: 3rem;
+  justify-content: center;
+}
+
+.edit-btn,
+.delete-btn {
+  padding: 0.4rem 0.8rem;
+  border: none;
+  border-radius: 5px;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.edit-btn {
+  background-color: #1976d2;
+  color: #fff;
+}
+
+.edit-btn:hover {
+  background-color: #125aa0;
+}
+
+.delete-btn {
+  background-color: #e53935;
+  color: #fff;
+}
+
+.delete-btn:hover {
+  background-color: #b71c1c;
+}
+
+/* Responsividade para telas menores */
 @media (max-width: 768px) {
-  .user-table {
-    font-size: 17px;
+  .user-item {
+    flex-direction: column; 
+    height: auto; 
   }
 
-  .user-table th,
-  .user-table td {
-    padding: 0.3rem;
+
+  .user-actions {
+    margin-top: 3rem;
+    justify-content: center; 
+  }
+
+  .edit-btn,
+  .delete-btn {
+    padding: 0.5rem 1rem; 
+  }
+}
+
+@media (max-width: 480px) {
+  /* Para telas muito pequenas, como smartphones em modo retrato */
+  .user-header {
+    grid-template-columns: 1fr 1fr; 
+  }
+
+  .user-info {
+    grid-template-columns: 1fr; 
+    gap: 0.3rem;
+  }
+
+  .user-actions {
+    margin-top: 1rem;
+    justify-content: center;
+    flex-direction: column; 
+  }
+
+  .edit-btn,
+  .delete-btn {
+    padding: 0.5rem 1.2rem; 
+    margin-bottom: 0.5rem; 
   }
 }

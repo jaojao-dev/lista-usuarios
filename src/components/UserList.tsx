@@ -1,32 +1,36 @@
-//importações
 import { User } from "../hooks/useUsers";
 import "../style/UserList.css";
 
-//definindo propriedades
 interface UserListProps {
   users: User[];
+  onEdit: (user: User) => void;
+  onDelete: (id: number) => void;
 }
 
-//criando o componente
-export function UserList({ users }: UserListProps) {
+export function UserList({ users, onEdit, onDelete }: UserListProps) {
   return (
-    <table className="user-table">
-      <thead>
-        <tr>
-          <th>Nome</th>
-          <th>E-mail</th>
-          <th>Cidade</th>
-        </tr>
-      </thead>
-      <tbody>
+    <div className="user-list-container">
+      <div className="user-header">
+        <span>Nome:</span>
+        <span>E-mail:</span>
+        <span>Cidade:</span>
+      </div>
+
+      <ul className="user-list">
         {users.map((user) => (
-          <tr key={user.id}>
-            <td>{user.name}</td>
-            <td>{user.email}</td>
-            <td>{user.address.city}</td>
-          </tr>
+          <li key={user.id} className="user-item">
+            <div className="user-info">
+              <span className="name">{user.name}</span>
+              <span className="email">{user.email}</span>
+              <span className="city">{user.address.city}</span>
+            </div>
+            <div className="user-actions">
+              <button className="edit-btn" onClick={() => onEdit(user)}>Editar</button>
+              <button className="delete-btn" onClick={() => onDelete(user.id)}>Excluir</button>
+            </div>
+          </li>
         ))}
-      </tbody>
-    </table>
+      </ul>
+    </div>
   );
 }
